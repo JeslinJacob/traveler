@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("db/connection.php");
-$sql="SELECT * FROM `doctordetails`";
+$sql="SELECT * FROM `aircraftdetails`";
 $result=mysql_query($sql);
 ?>
 <!DOCTYPE HTML>
@@ -101,7 +101,7 @@ tr:nth-child(even) {
 						
 						  	<li ><a href="adminPatientViewFormat.php">View Details</a></li>
                          	<li ><a href="adminFlightBookingViewFormat.php">Flightbookings</a></li>
-                          	<li ><a href="adminAircraftViewFormat.php">Aircraft View</a></li>
+                          	<li ><a href="aircraftview.php">Aircraft View</a></li>
                           	<li ><a href="adminAddAircraftDetailsFormat.php">Add Aircraft</a></li>
 					</ul>	
 				</div>
@@ -110,7 +110,7 @@ tr:nth-child(even) {
 		</div>
 	</nav>
 	
-	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/patients-header.jpg)">
+	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/pilotbanner.png)">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
@@ -118,8 +118,8 @@ tr:nth-child(even) {
 					<div class="row row-mt-15em">
 
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-							<span class="intro-text-small">manage our doctors</span>
-							<h1>Our Doctors</h1>	
+							<span class="intro-text-small">manage our aircrafts</span>
+							<h1>Aircraft We have</h1>	
 						</div>
 						
 					</div>
@@ -128,27 +128,6 @@ tr:nth-child(even) {
 			</div>
 		</div>
 	</header>
-
-
-	<form action="adminUserViewFormat.php">
-		
-<div class="col-md-12" style="
-    width:  11%;
-    transform: translate(335%%,27%);
-">
-		<input type="submit" class="btn btn-primary btn-block" value="previous" name="submit" >
-	</div>
-	</form>
-
-	<form action="adminPilotViewFormat.php">
-		
-<div class="col-md-12" style="
-    width:  11%;
-    transform: translate(372%%,27%);
-">
-		<input type="submit" class="btn btn-primary btn-block" value="next" name="submit" >
-	</div>
-	</form>
 	
 	
 	
@@ -159,33 +138,27 @@ tr:nth-child(even) {
     top: 100%;
     left: 11%;" >
   <tr>
-    <th>Name</th>
-	<th>Location</th>
-	<th>Speciality</th>
-	<th>Mobile</th>
+    <th>Aircraft Type</th>
+	<th>Identification Number</th>
+	<th>Engin Type</th>
+	<th>Capacity</th>
 
-	<th>Email</th>
-	<th>Username</th>
-	<th>password</th>
   	</tr>
   <?php
 while($row=mysql_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>".$row['name']."</td>";
-echo "<td>".$row['location']."</td>";
-echo "<td>".$row['speciality']."</td>";
-echo "<td>".$row['mob']."</td>";
-echo "<td>".$row['email']."</td>";
-echo "<td>".$row['username']."</td>";
-echo "<td>".$row['password']."</td>";
-echo "<td><a href='admineditdoctordetails.php?id=$row[did]'>Edit</a></td>";
-echo "<td><a href='admindeletedoctordetails.php?id=$row[did]'>Delete</a></td>";
+echo "<td>".$row['atype']."</td>";
+echo "<td>".$row['identificationnumber']."</td>";
+echo "<td>".$row['engintype']."</td>";
+echo "<td>".$row['capacity']."</td>";
+
+echo "<td><a href='adminEditAircraftDetails.php?id=$row[aid]'>Edit</a></td>";  
+echo "<td><a href='deleteaircraftdetails.php?id=$row[aid]'>Delete</a></td>";
 echo "</tr>";
 }
 //header('location:dlogin1.php');	
 mysql_close($con);
-
   ?>
  
 </table>

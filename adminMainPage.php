@@ -80,8 +80,9 @@
 						<li><a href="admindoctorview.php">Doctor Details</a></li>
 						<li ><a href="adminpilotview.php">Pilot Details</a></li> -->
 						 <li ><a href="adminPatientViewFormat.php">View Details</a></li>
-                         <li ><a href="adminflightbookingview.php">Flightbookings</a></li>
+                         <li ><a href="adminFlightBookingViewFormat.php">Flightbookings</a></li>
                           <li ><a href="aircraftview.php">Aircraft</a></li>
+                          <li ><a href="adminAddAircraftDetailsFormat.php">Add Aircraft</a></li>
 					</ul>	
 				</div>
 			</div>
